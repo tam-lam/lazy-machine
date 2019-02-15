@@ -12,30 +12,69 @@ body, html {
   -webkit-app-region: drag; 
   -webkit-user-drag: auto;
 }
-
+#shadowBox{
+  position: fixed;
+  width: 100%;
+  height: 100%;
+  background-image: linear-gradient( to right, rgba(255, 255, 255, 0),rgba(0, 0, 0, 0.1));
+  top: 0px;
+  left: 0px;
+  pointer-events: none;
+  /* opacity: 0.2; */
+  
+}
 .container{
   display: grid;
-  grid-template-rows: repeat(3,1fr);
+  grid-template-columns: repeat(3,1fr);
   grid-template-rows: repeat(3, minmax(90px, auto));
-
-
 }
-#box1{
-  background-color: pink;
+#btnGroup{
   grid-column: 1/2;
+  grid-row: 1/4;
+  /* background-image: linear-gradient(cyan,yellow,red ); */
+  background-image: linear-gradient( rgba(9,254,255,0.05), rgba(255,227,24,0.05), rgba(255,0,0,0.05));
+  background-color:rgba(0, 0, 0, 0.5);
+  display:grid;
+  grid-template-rows: repeat(3, minmax(90px, auto));
 }
-#box4{
-  background-color: pink;
+button{
+  border: none;
+  outline: none;
+  background-color: rgba(0, 0, 0, 0);
+  background-size: 150px 90px;
+  background-size:contain;
+
+
+}
+#sleepBtn{
+  background-image: url("../assests/sleepBtnNormal.png");
+  /* grid-row: 1/2; */
+
+}
+#sleepBtn:hover{
+  background-image: url("../assests/sleepBtnHover.png");
+  /* background-color:#95E1DB; */
+}
+#quitallBtn{
+  background-image: url("../assests/quitallBtnNormal.png");
+  /* grid-row: 2/3; */
+}
+#quitallBtn:hover{
+  background-image: url("../assests/quitallBtnHover.png");
+  /* background-color: #F2DC26; */
+  -webkit-backface-visibility: hidden
+}
+#shutdownBtn{
+  background-image: url("../assests/shutdownBtnNormal.png");
+  /* grid-row: 3/4; */
+}
+#shutdownBtn:hover{
+  background-image: url("../assests/shutdownBtnHover.png");
+  /* background-color: #DB817E; */
+}
+#timerContainer{
+  background-color: #95E1DB;
   grid-column: 2/4;
   grid-row: 1/4;
-}
-#box2{
-  background-color:lightcyan;
-  grid-column: 1/2;
-  grid-row: 2/3
-}
-#box3{
-  background-color: peachpuff;
-  grid-column: 1/2;
-  grid-row: 3/4
+  /* opacity: 1; */
 }

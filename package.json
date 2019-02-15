@@ -12,5 +12,8 @@
   "license": "ISC",
   "devDependencies": {
     "electron": "^4.0.4"
+  },
+  "dependencies": {
+    "applescript": "^1.0.0"
   }
 }

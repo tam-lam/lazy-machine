@@ -3,17 +3,24 @@
   <head>
     <meta charset="UTF-8">
     <title>lazy-mac</title>
-    <link rel="stylesheet" href="css\style.css">
+    <link rel="stylesheet" href="css/style.css">
     <div id= "dragBar"></div>
 
   </head>
   <body>
     <div class="container">
-      <div id="box1"></div>
-      <div id="box2"></div>
-      <div id="box3"></div>
-      <div id="box4"></div>
+      <div id="btnGroup">
+        <button type="button" id="sleepBtn" onclick="btnPressed('sleepBtn')"></button>
+        <button type="button" id="quitallBtn" onclick="btnPressed('quitallBtn')"></button>
+        <button type="button" id="shutdownBtn" onclick="btnPressed('shutdownBtn')"></button>
+
+      </div>
+      <div id="timerContainer"></div>
+    
     </div>
+    <div id="shadowBox"></div>
 
   </body>
+
+  <script src="js/script.js"></script>
 </html>
