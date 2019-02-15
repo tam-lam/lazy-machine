@@ -1,14 +1,20 @@
 body, html {
   margin: 0px;
   padding: 0px;
-}
+  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
 
+}
+text{
+  opacity: 0.7;
+  -webkit-text-fill-color: rgba(0, 0, 0, 0.7)
+
+}
 #dragBar{
   position: fixed;
   background-color: aqua;
   opacity: 0;
   width: 100%;
-  height: 20px;
+  height: 25px;
   -webkit-app-region: drag; 
   -webkit-user-drag: auto;
 }
@@ -41,40 +47,90 @@ button{
   border: none;
   outline: none;
   background-color: rgba(0, 0, 0, 0);
-  background-size: 150px 90px;
-  background-size:contain;
+  background-size: 152px 90px;
+  /* background-size:contain; */
 
 
 }
 #sleepBtn{
-  background-image: url("../assests/sleepBtnNormal.png");
-  /* grid-row: 1/2; */
+  background-image: url("../assests/sleepBtnPressed.png");
 
 }
-#sleepBtn:hover{
-  background-image: url("../assests/sleepBtnHover.png");
-  /* background-color:#95E1DB; */
-}
+
 #quitallBtn{
   background-image: url("../assests/quitallBtnNormal.png");
-  /* grid-row: 2/3; */
 }
-#quitallBtn:hover{
-  background-image: url("../assests/quitallBtnHover.png");
-  /* background-color: #F2DC26; */
-  -webkit-backface-visibility: hidden
-}
+
 #shutdownBtn{
   background-image: url("../assests/shutdownBtnNormal.png");
-  /* grid-row: 3/4; */
 }
-#shutdownBtn:hover{
-  background-image: url("../assests/shutdownBtnHover.png");
-  /* background-color: #DB817E; */
+
+#sleepBtnTest{
+  background-image: url("../assests/sleepBtnPressed.png");
 }
 #timerContainer{
   background-color: #95E1DB;
   grid-column: 2/4;
   grid-row: 1/4;
+  display: grid;
+  grid-template-rows: 2fr 1fr;
   /* opacity: 1; */
+}
+
+#valueContainer{
+  text-shadow: 1px 1px 20px rgb(0, 0, 0, 0.3);
+  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+  font-size: 60px;
+  opacity: 0.7;
+  margin: auto;
+  display: grid;
+  grid-template-columns: 4fr 1fr 4fr 1fr 4fr;
+}
+#sliderGroup{
+  font-size: 18px;
+  align-content: center;
+  padding: auto;
+  /* background-color: bisque; */
+  display: grid;
+  grid-gap: 10px;
+}
+#playBtn{
+  background-image: url("../assests/play80.png");
+  background-size: 40px 40px;
+  min-height: 40px;
+  min-width: 40px;
+}
+#playBtn:hover{
+  background-image: url("../assests/play.png");
+
+  /* background-size: 40px 40px; */
+}
+#playBtn:focus{
+  background-image: url("../assests/pause80.png");
+}
+
+.slider {
+  margin: auto;
+  margin-top: 0px;
+  width: 80%;
+  -webkit-appearance: none;
+  height: 5px;
+  border-radius: 5px;   
+  background: rgba(0, 0, 0, 1);
+  outline: none;
+  opacity: 0.7;
+  -webkit-transition: .2s;
+  transition: opacity .2s;
+}
+.slider::-webkit-slider-thumb {
+  -webkit-appearance: none;
+  appearance: none;
+  width: 18px;
+  height: 18px;
+  border-radius: 50%; 
+  background: black;
+  cursor: pointer;
+}
+.slider::-webkit-slider-runnable-track{
+  color: black
 }
