@@ -61,19 +61,24 @@ var minutes = 0
 var seconds = 0
 var isTiming = false
 
+function playBtnPressed(){
+  if(isTiming){
+    stopTimer()
+  }else{
+    startTimer()
+  }
+}
 
 function startTimer(){  
   // duration : in seconds
-  // toggleBtnAppearances()
+  isTiming = true
+  togglePlayBtnAppearance()
   duration = (hours*3600) + (minutes*60) + seconds
   if(duration>=1){
     function timer(){
-      isTiming = true
         if (duration <= 1){
-          clearInterval(timing)
-          resetSliderValue()
-          isTiming = false
-          executeAppleScript(script)
+          stopTimer()
+          execute(script)
         }
         duration = (duration < 0)? duration: duration - 1;
         totalSeconds = duration
@@ -81,28 +86,25 @@ function startTimer(){
     }
     window.timing = setInterval(timer,1000)
   }else{
-    executeAppleScript(script)
+    stopTimer()
+    execute(script)
   }
-  
 }
-function stopTiming(){
+
+function stopTimer(){
   clearInterval(window.timing)
   resetSliderValue()
   isTiming = false
-  updateTimeContainer(hours,minutes,seconds)
+  togglePlayBtnAppearance()
+  updateTimeContainer(0)
 }
-function btnPressed(senderBtnId){
 
+function btnPressed(senderBtnId){
   var btn = document.getElementById(senderBtnId)
   selectedBtn = btn
-
   setTimerInfo(btn)
   toggleBtnAppearances(selectedBtn)
   timerContainer.style.backgroundColor = bgColor;
-  // if(doCloseSafariTabs == true){
-  //   executeAppleScript(closeSafariTabsScript)
-  // }
-  // executeAppleScript(script)
 
 }
 function setTimerInfo(btn){
@@ -126,6 +128,12 @@ function resetSliderValue(){
   hourSlider.value = 0
   minuteSlider.value = 0
 }
+function execute(script){
+  if(doCloseSafariTabs == true){
+    executeAppleScript(closeSafariTabsScript)
+  }
+  executeAppleScript(script)
+}
 function executeAppleScript(script){
   applescript.execString(script, (err, rtn) => {
     if (Array.isArray(rtn)) {
@@ -135,8 +143,10 @@ function executeAppleScript(script){
   });
 }
 hourSlider.oninput = function(){
-  hourDiv.innerHTML = this.value <10 ? "0" + this.value : this.value
-  hours = this.value
+  if(!isTiming){
+    hourDiv.innerHTML = this.value <10 ? "0" + this.value : this.value
+    hours = this.value
+  }
 }
 minuteSlider.oninput = function(){
   if(!isTiming){
@@ -155,10 +165,6 @@ function updateTimeContainer(totalSeconds){
   secondDiv.innerHTML = seconds <10 ? "0" + seconds : seconds
 }
 function toggleBtnAppearances(selectedBtn){
-  // if(selectedBtn == playBtn){
-  //   imgURL = isTimming? playBtnURL :pauseBtnURL
-  //   playBtn.style.backgroundImage = imgURL
-  // }
   if(selectedBtn == sleepBtn){
     selectedBtn.style.backgroundImage= sleepBtnPressedURL
     quitallBtn.style.backgroundImage = quitallBtnNormalURL
@@ -173,5 +179,12 @@ function toggleBtnAppearances(selectedBtn){
     selectedBtn.style.backgroundImage= shutdownBtnPressedURL
     sleepBtn.style.backgroundImage = sleepBtnNormalURL
     quitallBtn.style.backgroundImage = quitallBtnNormalURL
+  }
+}
+function togglePlayBtnAppearance(){
+  if(isTiming){
+    playBtn.style.backgroundImage = pauseBtnURL
+  }else{
+    playBtn.style.backgroundImage = playBtnURL
   }
 }

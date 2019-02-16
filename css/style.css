@@ -84,7 +84,7 @@ button{
   opacity: 0.7;
   margin: auto;
   display: grid;
-  grid-template-columns: 4fr 1fr 4fr 1fr 4fr;
+  grid-template-columns: 5fr 1fr 5fr 1fr 5fr;
 }
 #sliderGroup{
   font-size: 18px;
@@ -100,14 +100,14 @@ button{
   min-height: 40px;
   min-width: 40px;
 }
-#playBtn:hover{
+/* #playBtn:hover{
   background-image: url("../assests/play.png");
 
   /* background-size: 40px 40px; */
-}
-#playBtn:focus{
+/* } */
+/* #playBtn:focus{
   background-image: url("../assests/pause80.png");
-}
+} */ 
 
 .slider {
   margin: auto;
