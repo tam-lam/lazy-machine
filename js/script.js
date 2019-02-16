@@ -6,16 +6,20 @@ const sleepBtn = document.getElementById("sleepBtn")
 const quitallBtn = document.getElementById("quitallBtn")
 const shutdownBtn = document.getElementById("shutdownBtn")
 const timerContainer = document.getElementById("timerContainer")
-const hour = document.getElementById("hour");
-const minute = document.getElementById("minute");
-const hourSlider = document.getElementById("hourSlider");
-const minuteSlider = document.getElementById("minuteSlider");
+const hourDiv = document.getElementById("hour")
+const minuteDiv = document.getElementById("minute")
+const secondDiv = document.getElementById("second")
+const playBtn = document.getElementById("playBtn")
+const hourSlider = document.getElementById("hourSlider")
+const minuteSlider = document.getElementById("minuteSlider")
 const sleepBtnNormalURL= "url('assests/sleepBtnNormal.png')" 
 const sleepBtnPressedURL = "url('assests/sleepBtnPressed.png')" 
 const quitallBtnNormalURL = "url('assests/quitallBtnNormal.png')" 
 const quitallBtnPressedURL = "url('assests/quitallBtnPressed.png')" 
 const shutdownBtnNormalURL = "url('assests/shutdownBtnNormal.png')" 
 const shutdownBtnPressedURL = "url('assests/shutdownBtnPressed.png')" 
+const playBtnURL = "url('assests/play.png')" 
+const pauseBtnURL = "url('assests/pause.png')" 
 
 const quitallScript = `
 tell application "System Events"
@@ -52,8 +56,43 @@ var bgColor = "#95E1DB"
 var script = sleepScript
 var doCloseSafariTabs = false
 var selectedBtn = sleepBtn
+var hours = 0
+var minutes = 0
+var seconds = 0
+var isTiming = false
 
+
+function startTimer(){  
+  // duration : in seconds
+  // toggleBtnAppearances()
+  duration = (hours*3600) + (minutes*60) + seconds
+  if(duration>=1){
+    function timer(){
+      isTiming = true
+        if (duration <= 1){
+          clearInterval(timing)
+          resetSliderValue()
+          isTiming = false
+          executeAppleScript(script)
+        }
+        duration = (duration < 0)? duration: duration - 1;
+        totalSeconds = duration
+        updateTimeContainer(duration)
+    }
+    window.timing = setInterval(timer,1000)
+  }else{
+    executeAppleScript(script)
+  }
+  
+}
+function stopTiming(){
+  clearInterval(window.timing)
+  resetSliderValue()
+  isTiming = false
+  updateTimeContainer(hours,minutes,seconds)
+}
 function btnPressed(senderBtnId){
+
   var btn = document.getElementById(senderBtnId)
   selectedBtn = btn
 
@@ -83,7 +122,10 @@ function setTimerInfo(btn){
     doCloseSafariTabs = true
   }
 }
-
+function resetSliderValue(){
+  hourSlider.value = 0
+  minuteSlider.value = 0
+}
 function executeAppleScript(script){
   applescript.execString(script, (err, rtn) => {
     if (Array.isArray(rtn)) {
@@ -93,33 +135,30 @@ function executeAppleScript(script){
   });
 }
 hourSlider.oninput = function(){
-  if (this.value == "0") {
-    hour.innerHTML = "00"
-  }else {
-    if(this.value<10){
-      hour.innerHTML = "0"+ this.value
-    }else{
-      hour.innerHTML = this.value
-    }
-  }
+  hourDiv.innerHTML = this.value <10 ? "0" + this.value : this.value
+  hours = this.value
 }
 minuteSlider.oninput = function(){
-  if (this.value == "0") {
-    minute.innerHTML = "00"
-  }else {
-    if(this.value<10){
-      minute.innerHTML = "0"+ this.value
-    }else{
-      minute.innerHTML = this.value
-    }
+  if(!isTiming){
+    minuteDiv.innerHTML = this.value < 10 ? "0" +this.value : this.value
+    minutes = this.value
   }
 }
-function disableSliders(){
-  hourSlider.disable = true
-  minuteSlider.disable = true
+func
+function updateTimeContainer(totalSeconds){
+  hours = Math.floor(totalSeconds / 3600);
+  totalSeconds %= 3600;
+  minutes = Math.floor(totalSeconds / 60);
+  seconds = totalSeconds % 60;
+  hourDiv.innerHTML = hours <10 ? "0" + hours : hours
+  minuteDiv.innerHTML = minutes <10 ? "0" + minutes : minutes
+  secondDiv.innerHTML = seconds <10 ? "0" + seconds : seconds
 }
-
 function toggleBtnAppearances(selectedBtn){
+  // if(selectedBtn == playBtn){
+  //   imgURL = isTimming? playBtnURL :pauseBtnURL
+  //   playBtn.style.backgroundImage = imgURL
+  // }
   if(selectedBtn == sleepBtn){
     selectedBtn.style.backgroundImage= sleepBtnPressedURL
     quitallBtn.style.backgroundImage = quitallBtnNormalURL

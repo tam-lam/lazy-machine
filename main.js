@@ -8,7 +8,6 @@ function createWindow () {
         titleBarStyle: 'hidden',
         resizable: false,
         fullscreenable: false,
-        // backgroundColor: "#F7C136",
         vibrancy: 'ultra-dark'
     })
 
