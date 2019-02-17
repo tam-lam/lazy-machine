@@ -8,14 +8,14 @@ const secondDiv = document.getElementById("second")
 const playBtn = document.getElementById("playBtn")
 const hourSlider = document.getElementById("hourSlider")
 const minuteSlider = document.getElementById("minuteSlider")
-const sleepBtnNormalURL= "url('assests/sleepBtnNormal.png')" 
-const sleepBtnPressedURL = "url('assests/sleepBtnPressed.png')" 
-const quitallBtnNormalURL = "url('assests/quitallBtnNormal.png')" 
-const quitallBtnPressedURL = "url('assests/quitallBtnPressed.png')" 
-const shutdownBtnNormalURL = "url('assests/shutdownBtnNormal.png')" 
-const shutdownBtnPressedURL = "url('assests/shutdownBtnPressed.png')" 
-const playBtnURL = "url('assests/play80.png')" 
-const pauseBtnURL = "url('assests/pause80.png')" 
+const sleepBtnNormalURL= "url('assets/sleepBtnNormal.png')" 
+const sleepBtnPressedURL = "url('assets/sleepBtnPressed.png')" 
+const quitallBtnNormalURL = "url('assets/quitallBtnNormal.png')" 
+const quitallBtnPressedURL = "url('assets/quitallBtnPressed.png')" 
+const shutdownBtnNormalURL = "url('assets/shutdownBtnNormal.png')" 
+const shutdownBtnPressedURL = "url('assets/shutdownBtnPressed.png')" 
+const playBtnURL = "url('assets/play80.png')" 
+const pauseBtnURL = "url('assets/pause80.png')" 
 
 const quitallScript = `
 tell application "System Events"

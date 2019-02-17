@@ -53,20 +53,20 @@ button{
 
 }
 #sleepBtn{
-  background-image: url("../assests/sleepBtnPressed.png");
+  background-image: url("../assets/sleepBtnPressed.png");
 
 }
 
 #quitallBtn{
-  background-image: url("../assests/quitallBtnNormal.png");
+  background-image: url("../assets/quitallBtnNormal.png");
 }
 
 #shutdownBtn{
-  background-image: url("../assests/shutdownBtnNormal.png");
+  background-image: url("../assets/shutdownBtnNormal.png");
 }
 
 #sleepBtnTest{
-  background-image: url("../assests/sleepBtnPressed.png");
+  background-image: url("../assets/sleepBtnPressed.png");
 }
 #timerContainer{
   background-color: #95E1DB;
@@ -95,19 +95,11 @@ button{
   grid-gap: 10px;
 }
 #playBtn{
-  background-image: url("../assests/play80.png");
+  background-image: url("../assets/play80.png");
   background-size: 40px 40px;
   min-height: 40px;
   min-width: 40px;
 }
-/* #playBtn:hover{
-  background-image: url("../assests/play.png");
-
-  /* background-size: 40px 40px; */
-/* } */
-/* #playBtn:focus{
-  background-image: url("../assests/pause80.png");
-} */ 
 
 .slider {
   margin: auto;
