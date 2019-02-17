@@ -60,7 +60,9 @@ button{
 #quitallBtn{
   background-image: url("../assets/quitallBtnNormal.png");
 }
-
+button:hover{
+  background-size: 154px 92px !important;
+}
 #shutdownBtn{
   background-image: url("../assets/shutdownBtnNormal.png");
 }
@@ -100,6 +102,12 @@ button{
   background-size: 40px 40px;
   min-height: 40px;
   min-width: 40px;
+}
+#playBtn:hover{
+  min-height: 42px;
+  min-width: 42px;
+  background-size: 42px 42px !important;
+
 }
 
 .slider {

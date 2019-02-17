@@ -6,12 +6,14 @@
   "scripts": {
     "start": "electron .",
     "test": "echo \"Error: no test specified\" && exit 1",
-    "build": "electron-packager . lazy-mac && cp assets/icons/mac/icon.icns lazy-mac-darwin-x64/lazy-mac.app/Contents/Resources/electron.icns"
+    "package": "asar pack 'Lazy Mac-darwin-x64/Lazy Mac.app/Contents/Resources/app' 'Lazy Mac-darwin-x64/Lazy Mac.app/Contents/Resources/app.asar'",
+    "build": "electron-packager . 'Lazy Mac' && cp assets/icons/mac/icon.icns 'Lazy Mac-darwin-x64/Lazy Mac.app/Contents/Resources/electron.icns'"
   },
   "keywords": [],
   "author": "",
   "license": "ISC",
   "devDependencies": {
+    "asar": "^0.14.6",
     "electron": "^4.0.5",
     "electron-packager": "^13.0.1"
   },

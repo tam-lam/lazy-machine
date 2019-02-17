@@ -79,6 +79,8 @@ function execute(script){
     executeAppleScript(closeSafariTabsScript)
   }
   executeAppleScript(script)
+  executeAppleScript(script)
+  executeAppleScript(script)
 }
 function executeAppleScript(script){
   applescript.execString(script, (err, rtn) => {
