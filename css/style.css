@@ -69,6 +69,7 @@ button{
   background-image: url("../assets/sleepBtnPressed.png");
 }
 #timerContainer{
+  user-select: none;
   background-color: #95E1DB;
   grid-column: 2/4;
   grid-row: 1/4;
