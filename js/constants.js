@@ -14,8 +14,8 @@ const quitallBtnNormalURL = "url('assests/quitallBtnNormal.png')"
 const quitallBtnPressedURL = "url('assests/quitallBtnPressed.png')" 
 const shutdownBtnNormalURL = "url('assests/shutdownBtnNormal.png')" 
 const shutdownBtnPressedURL = "url('assests/shutdownBtnPressed.png')" 
-const playBtnURL = "url('assests/play.png')" 
-const pauseBtnURL = "url('assests/pause.png')" 
+const playBtnURL = "url('assests/play80.png')" 
+const pauseBtnURL = "url('assests/pause80.png')" 
 
 const quitallScript = `
 tell application "System Events"
