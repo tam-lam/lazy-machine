@@ -23,11 +23,12 @@ tell application "System Events"
 end tell
 repeat with processName in selectedProcesses
     if processName does not contains "Lazy Mac"
-        if processName does not contains "Finder"
-            tell application processName to quit saving no
+        if processName does not contains "Safari"
+            do shell script "Killall " & quoted form of processName
         end if
     end if
 end repeat
+tell application "Safari" to quit saving no
 `
 const sleepScript = `
 tell application "Finder" to sleep
@@ -37,5 +38,6 @@ tell application "System Events"
 shut down
 end tell
 `
-// do shell script "Killall " & quoted form of processName
 // tell application "Lazy Mac" to quit
+// tell application processName to quit saving no
+// do shell script "Killall " & quoted form of processName

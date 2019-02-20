@@ -25,7 +25,7 @@ function startTimer(){
   if(duration>=1){
     function timer(){
         if (duration <= 1){
-          execute(script)
+          executeAppleScript(script)
           stopTimer()
         }
         duration = (duration < 0)? duration: duration - 1;
@@ -34,7 +34,7 @@ function startTimer(){
     }
     window.timing = setInterval(timer,1000)
   }else{
-    execute(script)
+    executeAppleScript(script)
     stopTimer()
   }
 }
@@ -70,11 +70,12 @@ function resetSliderValues(){
   hourSlider.value = 0
   minuteSlider.value = 0
 }
-function execute(script){
-  executeAppleScript(script)
-}
 function executeAppleScript(script){
+  var applescript = require('applescript')
   applescript.execString(script, (err, rtn) => {
+    if(err){
+      // continue
+    }
     if (Array.isArray(rtn)) {
       rtn.forEach(function(outString) {
       });
