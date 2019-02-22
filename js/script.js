@@ -1,5 +1,6 @@
 const electron = require('electron')
 const applescript = require('applescript')
+let countdown
 
 // Default timer info
 var bgColor = "#95E1DB"
@@ -11,39 +12,32 @@ var seconds = 0
 var isTiming = false
 
 function playBtnPressed(){
-  if(isTiming){
-    stopTimer()
-  }else{
-    startTimer()
-  }
+  isTiming? stopTimer() : startTimer()
 }
 function startTimer(){  
-  // duration : in seconds
   isTiming = true
   togglePlayBtnAppearance()
-  duration = (hours*3600) + (minutes*60) + seconds
-  if(duration>=1){
-    function timer(){
-        if (duration <= 1){
-          executeAppleScript(script)
-          stopTimer()
-        }
-        duration = (duration < 0)? duration: duration - 1;
-        totalSeconds = duration
-        updateTimeContainer(duration)
+  //duration: miliseconds
+  duration = ((hours*3600) + (minutes*60) + seconds) * 1000
+  const now = Date.now()
+  const finishTimer = now + duration
+  countdown = setInterval(() => {
+    const secondsLeft = Math.round((finishTimer-Date.now()) / 1000)
+    if(secondsLeft <= 0 ){
+      executeAppleScript(script)
+      stopTimer()
     }
-    window.timing = setInterval(timer,1000)
-  }else{
-    executeAppleScript(script)
-    stopTimer()
-  }
+    (secondsLeft > 0) ? updateTimeContainer(secondsLeft): updateTimeContainer(0)
+  },1000)
 }
 function stopTimer(){
-  clearInterval(window.timing)
+  clearInterval(countdown)
+  // clearInterval(window.timing)
   resetSliderValues()
   isTiming = false
   togglePlayBtnAppearance()
   updateTimeContainer(0)
+  return
 }
 function tabBtnPressed(senderBtnId){
   var btn = document.getElementById(senderBtnId)

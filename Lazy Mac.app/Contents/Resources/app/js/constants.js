@@ -38,6 +38,3 @@ tell application "System Events"
 shut down
 end tell
 `
-// tell application "Lazy Mac" to quit
-// tell application processName to quit saving no
-// do shell script "Killall " & quoted form of processName

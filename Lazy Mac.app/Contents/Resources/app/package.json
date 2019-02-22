@@ -16,6 +16,7 @@
     "applescript-js": "^0.2.0",
     "asar": "^0.14.6",
     "electron": "^4.0.5",
+    "electron-icon-maker": "0.0.4",
     "electron-packager": "^13.0.1"
   },
   "dependencies": {

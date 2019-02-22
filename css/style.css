@@ -2,12 +2,10 @@ body, html {
   margin: 0px;
   padding: 0px;
   font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
-
 }
 text{
   opacity: 0.7;
   -webkit-text-fill-color: rgba(0, 0, 0, 0.7)
-
 }
 #dragBar{
   position: fixed;
@@ -27,7 +25,6 @@ text{
   left: 0px;
   pointer-events: none;
   /* opacity: 0.2; */
-  
 }
 .container{
   display: grid;
@@ -49,14 +46,10 @@ button{
   background-color: rgba(0, 0, 0, 0);
   background-size: 152px 90px;
   /* background-size:contain; */
-
-
 }
 #sleepBtn{
   background-image: url("../assets/sleepBtnPressed.png");
-
 }
-
 #quitallBtn{
   background-image: url("../assets/quitallBtnNormal.png");
 }
@@ -66,7 +59,6 @@ button:hover{
 #shutdownBtn{
   background-image: url("../assets/shutdownBtnNormal.png");
 }
-
 #sleepBtnTest{
   background-image: url("../assets/sleepBtnPressed.png");
 }
@@ -79,7 +71,6 @@ button:hover{
   grid-template-rows: 2fr 1fr;
   /* opacity: 1; */
 }
-
 #valueContainer{
   text-shadow: 1px 1px 20px rgb(0, 0, 0, 0.3);
   font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
@@ -107,9 +98,7 @@ button:hover{
   min-height: 42px;
   min-width: 42px;
   background-size: 42px 42px !important;
-
 }
-
 .slider {
   margin: auto;
   margin-top: 0px;
