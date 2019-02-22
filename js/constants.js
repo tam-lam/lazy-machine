@@ -22,7 +22,7 @@ tell application "System Events"
     set selectedProcesses to (name of every process where background only is false)
 end tell
 repeat with processName in selectedProcesses
-    if processName does not contains "Lazy Mac"
+    if processName does not contains "Lazy Machine"
         if processName does not contains "Safari"
             do shell script "Killall " & quoted form of processName
         end if

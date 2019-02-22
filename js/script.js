@@ -12,6 +12,10 @@ var seconds = 0
 var isTiming = false
 
 function playBtnPressed(){
+  if(hours == 0 && minutes == 0 && seconds ==0){
+    executeAppleScript(script)
+    return
+  }
   isTiming? stopTimer() : startTimer()
 }
 function startTimer(){  
