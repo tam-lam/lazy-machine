@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="UTF-8">
+    <title>lazy-mac</title>
+    <link rel="stylesheet" href="css/style.css">
+    <div id= "dragBar"></div>
+
+  </head>
+  <body>
+    <div class="container">
+      <div id="btnGroup">
+        <button type="button"  id="sleepBtn" onclick="tabBtnPressed('sleepBtn')" ></button>
+        <button type="button" id="quitallBtn" onclick="tabBtnPressed('quitallBtn')"></button>
+        <button type="button" id="shutdownBtn" onclick="tabBtnPressed('shutdownBtn')"></button>
+      </div>
+      <div id="timerContainer" align="center"> 
+        <div id = "sliderGroup" >
+            <div id = "valueContainer">
+                <div id="hour">00</div>:<div id="minute">00</div>:<div id="second">00</div>
+            </div>
+          <div id="hourSliderGroup">h: <input type="range" min="0" max="24" value="0" class="slider" id="hourSlider"></div>
+          <div id="minuteSliderGroup">m: <input type="range" min="0" max="59" value="0" class="slider" id="minuteSlider"></div>
+        </div>
+        <div><button type ="button" id="playBtn" onclick="playBtnPressed()"></button></div>
+      </div>
+    
+    </div>
+    <div id="shadowBox"></div>
+
+  </body>
+  <script src="js/constants.js"></script>
+  <script src="js/script.js"></script>
+</html>
