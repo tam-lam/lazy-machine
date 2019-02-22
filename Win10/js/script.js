@@ -1,4 +1,6 @@
 const electron = require('electron')
+const Shell = require('node-powershell');
+
 let countdown
 
 const sleepBtn = document.getElementById("sleepBtn")
@@ -50,9 +52,27 @@ var minutes = 0
 var seconds = 0
 var isTiming = false
 
+function executeShellScript(script){
+
+  const ps = new Shell({
+    executionPolicy: 'Bypass',
+    noProfile: true
+  });
+
+  ps.addCommand('(get-process | ? { $_.mainwindowtitle -ne "" -and $_.processname -ne "powershell" } )| stop-process');
+  ps.invoke()
+  .then(output => {
+    console.log(output);
+  })
+  .catch(err => {
+    console.log(err);
+  });
+}
+
 function playBtnPressed(){
   if(hours == 0 && minutes == 0 && seconds ==0){
     // executeAppleScript(script)
+    executeShellScript(script)
     return
   }
   isTiming? stopTimer() : startTimer()
@@ -118,6 +138,7 @@ function resetSliderValues(){
 //     }
 //   });
 // }
+
 hourSlider.oninput = function(){
   if(!isTiming){
     hourDiv.innerHTML = this.value <10 ? "0" + this.value : this.value
