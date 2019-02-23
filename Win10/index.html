@@ -7,13 +7,9 @@
     <link rel="stylesheet" href="css/style.css">
     <div id= "dragBar"></div>
     <script>
-      const ElectronTitlebarWindows = require('electron-titlebar-windows');
-      const titlebar = new ElectronTitlebarWindows({
-        fullscreen: true,
-        draggable :true,
-      });
-      titlebar.appendTo()
+      require('./js/renderer.js')
     </script>
+
   </head>
   <body>
     <div class="container">

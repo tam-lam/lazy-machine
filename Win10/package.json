@@ -6,6 +6,7 @@
   "dependencies": {},
   "devDependencies": {
     "electron": "^4.0.5",
+    "electron-titlebar-windows": "^3.0.0",
     "node-powershell": "^4.0.0"
   },
   "scripts": {
