@@ -21,58 +21,23 @@ const shutdownBtnNormalURL = "url('assets/shutdownBtnNormal.png')"
 const shutdownBtnPressedURL = "url('assets/shutdownBtnPressed.png')" 
 const playBtnURL = "url('assets/play80.png')" 
 const pauseBtnURL = "url('assets/pause80.png')" 
+const sleepScript = "sleepScript"
+const quitAllScript = "quitAllScript"
+const shutdownScript = "shutdownScript"
 
-const quitallScript = `
-tell application "System Events"
-    set selectedProcesses to (name of every process where background only is false)
-end tell
-repeat with processName in selectedProcesses
-    if processName does not contains "Lazy Machine"
-        if processName does not contains "Safari"
-            do shell script "Killall " & quoted form of processName
-        end if
-    end if
-end repeat
-tell application "Safari" to quit saving no
-`
-const sleepScript = `
-tell application "Finder" to sleep
-`
-const shutdownScript = `
-tell application "System Events"
-shut down
-end tell
-`
 // Default timer info
+const global = this
 var bgColor = "#95E1DB"
-var script = sleepScript
 var selectedBtn = sleepBtn
 var hours = 0
 var minutes = 0
 var seconds = 0
 var isTiming = false
-
-function executeShellScript(script){
-
-  const ps = new Shell({
-    executionPolicy: 'Bypass',
-    noProfile: true
-  });
-
-  ps.addCommand('(get-process | ? { $_.mainwindowtitle -ne "" -and $_.processname -ne "powershell" } )| stop-process');
-  ps.invoke()
-  .then(output => {
-    console.log(output);
-  })
-  .catch(err => {
-    console.log(err);
-  });
-}
+var script = sleepScript
 
 function playBtnPressed(){
-  if(hours == 0 && minutes == 0 && seconds ==0){
-    // executeAppleScript(script)
-    executeShellScript(script)
+  if(hours == 0 && minutes == 0 && seconds == 0){
+    executeShellScript()
     return
   }
   isTiming? stopTimer() : startTimer()
@@ -87,11 +52,35 @@ function startTimer(){
   countdown = setInterval(() => {
     const secondsLeft = Math.round((finishTime-Date.now()) / 1000)
     if(secondsLeft <= 0 ){
-      // executeAppleScript(script)
+      executeShellScript()
       stopTimer()
     }
     (secondsLeft > 0) ? updateTimeContainer(secondsLeft): updateTimeContainer(0)
   },1000)
+}
+function executeShellScript(){
+  const ps = new Shell({
+    executionPolicy: 'Bypass',
+    noProfile: true
+  });
+  if(script == quitAllScript){
+    ps.addCommand('(New-Object -comObject Shell.Application).Windows() | foreach-object {$_.quit()}')
+    ps.addCommand('(get-process | ? { $_.mainwindowtitle -ne "" -and $_.processname -ne "powershell" } )| stop-process');
+    ps.addCommand('stop-process powershell')
+  }
+  if(script == sleepScript){
+    ps.addCommand('rundll32.exe user32.dll,LockWorkStation')
+  }
+  if(script == shutdownScript){
+    ps.addCommand('Stop-Computer')
+  }
+  ps.invoke()
+  .then(output => {
+    console.log(output);
+  })
+  .catch(err => {
+    console.log(err);
+  });
 }
 function stopTimer(){
   clearInterval(countdown)
@@ -115,7 +104,7 @@ function setTimerInfo(btn){
   }
   if(btn == quitallBtn){
     bgColor = "#F2DC26"
-    script = quitallScript
+    script = quitAllScript
   }
   if(btn == shutdownBtn){
     bgColor = "#DB817E"
@@ -126,19 +115,6 @@ function resetSliderValues(){
   hourSlider.value = 0
   minuteSlider.value = 0
 }
-// function executeAppleScript(script){
-//   var applescript = require('applescript')
-//   applescript.execString(script, (err, rtn) => {
-//     if(err){
-//       // continue
-//     }
-//     if (Array.isArray(rtn)) {
-//       rtn.forEach(function(outString) {
-//       });
-//     }
-//   });
-// }
-
 hourSlider.oninput = function(){
   if(!isTiming){
     hourDiv.innerHTML = this.value <10 ? "0" + this.value : this.value
