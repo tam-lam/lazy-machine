@@ -2,29 +2,6 @@ const electron = require('electron')
 const Shell = require('node-powershell');
 
 let countdown
-
-const sleepBtn = document.getElementById("sleepBtn")
-const quitallBtn = document.getElementById("quitallBtn")
-const shutdownBtn = document.getElementById("shutdownBtn")
-const timerContainer = document.getElementById("timerContainer")
-const hourDiv = document.getElementById("hour")
-const minuteDiv = document.getElementById("minute")
-const secondDiv = document.getElementById("second")
-const playBtn = document.getElementById("playBtn")
-const hourSlider = document.getElementById("hourSlider")
-const minuteSlider = document.getElementById("minuteSlider")
-const sleepBtnNormalURL= "url('assets/sleepBtnNormal.png')" 
-const sleepBtnPressedURL = "url('assets/sleepBtnPressed.png')" 
-const quitallBtnNormalURL = "url('assets/quitallBtnNormal.png')" 
-const quitallBtnPressedURL = "url('assets/quitallBtnPressed.png')" 
-const shutdownBtnNormalURL = "url('assets/shutdownBtnNormal.png')" 
-const shutdownBtnPressedURL = "url('assets/shutdownBtnPressed.png')" 
-const playBtnURL = "url('assets/play80.png')" 
-const pauseBtnURL = "url('assets/pause80.png')" 
-const sleepScript = "sleepScript"
-const quitAllScript = "quitAllScript"
-const shutdownScript = "shutdownScript"
-
 // Default timer info
 const global = this
 var bgColor = "#95E1DB"
@@ -63,13 +40,13 @@ function executeShellScript(){
     executionPolicy: 'Bypass',
     noProfile: true
   });
+  if(script == sleepScript){
+    ps.addCommand('rundll32.exe user32.dll,LockWorkStation')
+  }
   if(script == quitAllScript){
     ps.addCommand('(New-Object -comObject Shell.Application).Windows() | foreach-object {$_.quit()}')
     ps.addCommand('(get-process | ? { $_.mainwindowtitle -ne "" -and $_.processname -ne "powershell" } )| stop-process');
     ps.addCommand('stop-process powershell')
-  }
-  if(script == sleepScript){
-    ps.addCommand('rundll32.exe user32.dll,LockWorkStation')
   }
   if(script == shutdownScript){
     ps.addCommand('Stop-Computer')
