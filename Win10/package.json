@@ -6,7 +6,7 @@
   "dependencies": {},
   "devDependencies": {
     "electron": "^4.0.5",
-    "electron-titlebar-windows": "^3.0.0",
+    "electron-titlebar-windows": "git://github.com/tam-lam/electron-titlebar-windows.git",
     "node-powershell": "^4.0.0"
   },
   "scripts": {

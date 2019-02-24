@@ -45,7 +45,7 @@ function executeShellScript(){
   }
   if(script == quitAllScript){
     ps.addCommand('(New-Object -comObject Shell.Application).Windows() | foreach-object {$_.quit()}')
-    ps.addCommand('(get-process | ? { $_.mainwindowtitle -ne "" -and $_.processname -ne "powershell" } )| stop-process');
+    ps.addCommand('(get-process | ? { $_.mainwindowtitle -ne "" -and $_.processname -ne "powershell" -and $_.processname -ne "electron"} )| stop-process');
     ps.addCommand('stop-process powershell')
   }
   if(script == shutdownScript){
