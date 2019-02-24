@@ -1,0 +1,6 @@
+directories:
+  output: dist
+  buildResources: build
+appId: com.Lazy.Machine
+productName: Lazy Machine
+electronVersion: 4.0.5

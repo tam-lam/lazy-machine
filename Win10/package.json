@@ -3,15 +3,22 @@
   "version": "1.0.0",
   "description": "",
   "main": "main.js",
-  "dependencies": {},
-  "devDependencies": {
-    "electron": "^4.0.5",
+  "dependencies": {
     "electron-titlebar-windows": "git://github.com/tam-lam/electron-titlebar-windows.git",
     "node-powershell": "^4.0.0"
   },
+  "devDependencies": {
+    "electron": "^4.0.5",
+    "electron-builder": "^20.38.5"
+  },
+  "build":{
+    "appId": "com.Lazy.Machine",
+    "productName": "Lazy Machine"
+  },
   "scripts": {
     "start": "electron .",
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "pack": "build --dir"
   },
   "keywords": [],
   "author": "",
