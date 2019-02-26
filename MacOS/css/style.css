@@ -3,6 +3,7 @@ body, html {
   padding: 0px;
   font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
   overflow: hidden;
+  height: 100%;
 }
 text{
   opacity: 0.7;
@@ -31,11 +32,11 @@ text{
   display: grid;
   grid-template-columns: repeat(3,1fr);
   grid-template-rows: repeat(3, minmax(90px, auto));
+  height: 100%;
 }
 #btnGroup{
   grid-column: 1/2;
   grid-row: 1/4;
-  /* background-image: linear-gradient(cyan,yellow,red ); */
   background-image: linear-gradient( rgba(9,254,255,0.05), rgba(255,227,24,0.05), rgba(255,0,0,0.05));
   background-color:rgba(0, 0, 0, 0.5);
   display:grid;
@@ -46,7 +47,9 @@ button{
   outline: none;
   background-color: rgba(0, 0, 0, 0);
   background-size: 152px 90px;
-  /* background-size:contain; */
+  background-size:  102% 102%;                  
+  background-repeat:   no-repeat;
+  background-position: center center;            
 }
 #sleepBtn{
   background-image: url("../assets/sleepBtnPressed.png");
@@ -55,7 +58,7 @@ button{
   background-image: url("../assets/quitallBtnNormal.png");
 }
 button:hover{
-  background-size: 154px 92px !important;
+  background-size: 107% 107%;                     
 }
 #shutdownBtn{
   background-image: url("../assets/shutdownBtnNormal.png");
@@ -70,7 +73,6 @@ button:hover{
   grid-row: 1/4;
   display: grid;
   grid-template-rows: 2fr 1fr;
-  /* opacity: 1; */
 }
 #valueContainer{
   text-shadow: 1px 1px 20px rgb(0, 0, 0, 0.3);
@@ -85,7 +87,6 @@ button:hover{
   font-size: 18px;
   align-content: center;
   padding: auto;
-  /* background-color: bisque; */
   display: grid;
   grid-gap: 10px;
 }
@@ -98,7 +99,7 @@ button:hover{
 #playBtn:hover{
   min-height: 42px;
   min-width: 42px;
-  background-size: 42px 42px !important;
+  background-size: 42px 42px !important;           
 }
 .slider {
   margin: auto;
