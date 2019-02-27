@@ -9,8 +9,6 @@ function createWindow () {
         resizable: false,
         fullscreenable: false,
         frame: false,
-        // transparent: true,
-        // vibrancy:'ultra-dark',
         backgroundColor: '#000000'
     })
   win.setMenuBarVisibility(false)

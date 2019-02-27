@@ -3,9 +3,9 @@ body, html {
   padding: 0px;
   font-family: Arial, Helvetica, sans-serif;
   overflow: hidden;
+  height: 100%;
 }
 text{
-  /* opacity: 0.7; */
   -webkit-text-fill-color: rgba(0, 0, 0, 0.7)
 }
 #dragBar{
@@ -28,12 +28,14 @@ text{
 }
 .container{
   display: grid;
+  background-color: black;
   grid-template-columns: repeat(3,1fr);
   grid-template-rows: repeat(3, minmax(90px, auto));
+  height: 100%;
 }
 #btnGroup{
   grid-column: 1/2;
-  grid-row: 1/4;
+  grid-row: 1/3;
   background-image: linear-gradient( rgba(9,254,255,0.05), rgba(255,227,24,0.05), rgba(255,0,0,0.05));
   background-color:rgba(0, 0, 0, 0.5);
   display:grid;
@@ -43,8 +45,9 @@ button{
   border: none;
   outline: none;
   background-color: rgba(0, 0, 0, 0);
-  background-size: 152px 90px;
-  /* background-size:contain; */
+  background-size:102% 102%;
+  background-repeat: no-repeat;
+  background-position: center center;  
 }
 #sleepBtn{
   background-image: url("../assets/sleepBtnPressed.png");
@@ -53,7 +56,7 @@ button{
   background-image: url("../assets/quitallBtnNormal.png");
 }
 button:hover{
-  background-size: 154px 92px !important;
+  background-size: 107% 107% !important;
 }
 #shutdownBtn{
   background-image: url("../assets/shutdownBtnNormal.png");
