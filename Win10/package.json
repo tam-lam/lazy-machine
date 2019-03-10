@@ -4,7 +4,7 @@
   "description": "",
   "author": "Tam Lam",
   "homepage": "https://github.com/tam-lam/lazy-machine",
-  "license":"GPL-3.0",
+  "license": "GPL-3.0",
   "main": "main.js",
   "dependencies": {
     "electron-titlebar-windows": "git://github.com/tam-lam/electron-titlebar-windows.git",
@@ -14,7 +14,7 @@
     "electron": "^4.0.5",
     "electron-builder": "^20.38.5"
   },
-  "build":{
+  "build": {
     "appId": "com.Lazy.Machine",
     "productName": "Lazy Machine"
   },

@@ -49,6 +49,8 @@ function executeShellScript(){
     ps.addCommand('stop-process powershell')
   }
   if(script == shutdownScript){
+    ps.addCommand('(New-Object -comObject Shell.Application).Windows() | foreach-object {$_.quit()}')
+    ps.addCommand('(get-process | ? { $_.mainwindowtitle -ne "" -and $_.processname -ne "powershell" -and $_.processname -ne "Lazy Machine"} )| stop-process');
     ps.addCommand('Stop-Computer')
   }
   ps.invoke()
