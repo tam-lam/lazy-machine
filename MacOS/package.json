@@ -1,7 +1,7 @@
 {
   "name": "lazy-machine",
   "version": "1.0.0",
-  "description": "",
+  "description": "Procrastination timer for Mac and Windows machines",
   "main": "main.js",
   "scripts": {
     "start": "electron .",
@@ -9,7 +9,6 @@
     "package": "asar pack 'Lazy Machine-darwin-x64/Lazy Machine.app/Contents/Resources/app' 'Lazy Machine-darwin-x64/Lazy Machine.app/Contents/Resources/app.asar'",
     "build": "electron-packager . 'Lazy Machine' && cp assets/icons/mac/icon.icns 'Lazy Machine-darwin-x64/Lazy Machine.app/Contents/Resources/electron.icns'"
   },
-  "keywords": [],
   "author": "",
   "license": "ISC",
   "devDependencies": {
@@ -21,5 +20,15 @@
   },
   "dependencies": {
     "applescript": "^1.0.0"
-  }
+  },
+  "keywords": [
+    "timer",
+    "procrastination",
+    "lazy machine",
+    "lazy-machine",
+    "shutdown",
+    "quitall",
+    "sleep",
+    "cross-platform"
+  ]
 }

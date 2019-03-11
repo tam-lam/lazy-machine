@@ -1,7 +1,7 @@
 {
   "name": "lazy-machine",
   "version": "1.0.0",
-  "description": "",
+  "description": "Procrastination timer for Mac and Windows machines",
   "author": "Tam Lam",
   "homepage": "https://github.com/tam-lam/lazy-machine",
   "license": "GPL-3.0",
@@ -23,5 +23,14 @@
     "test": "echo \"Error: no test specified\" && exit 1",
     "pack": "build --dir"
   },
-  "keywords": []
+  "keywords": [
+    "timer",
+    "procrastination",
+    "lazy machine",
+    "lazy-machine",
+    "shutdown",
+    "quitall",
+    "sleep",
+    "cross-platform"
+  ]
 }
