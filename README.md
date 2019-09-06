@@ -1,6 +1,23 @@
 # lazy-machine
 GUI version for this script: [/lazy-mac](https://github.com/tam-lam/lazy-mac)
 
+## What is this?
+Have you ever stuck in a habit feedback loop where you keep scrolling down through social media and telling yourself "just a few more posts". Or have you binge-watching a video streaming service and saying "just 1 more episode". 
+
+But before you know it, a few hours go by without you realizing what just happened? You feel incredibly guilty and beat yourself up for it. But it doesn't have to be that way. It is not entirely your fault because most of everything on the internet is evolved and designed to make you addicted. But you can't completely remove the internet out of today modern life. However, you can be little bit smarter about how you spend your time online.
+
+__Lazy Machine__ can help you break out of the infinite loop of pointless feedback and save your mental energy for better things. It automatically puts computer to sleep/quit all application/completely shut down with a timer set by you.
+
+
+## Instruction
+Select a behaviour mode and set a timer with Lazy Machine when you feel like you may need some assistance pulling yourself away from the screen.
+
+The best and most effective option is to shutdown your computer completely. Set a timer that is slightly more than adequate so you will feel contented that you spend enough time for the task
+
+## Warning
+-quitall and -shutdown mode close all applications. __Unsaved data maybe lost__.
+
+
 ## Pre-release v0.0
 [v0.0](https://github.com/tam-lam/lazy-machine/releases/tag/v0.0)
 
